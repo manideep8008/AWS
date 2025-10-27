@@ -1,0 +1,17 @@
+tasks:
+    aws-cli-install:
+        name: Install AWS CLI
+        command: |
+            export AWS_CLI_AUTO_PROMPT=on-partial
+            cd /tmp
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip -q awscliv2.zip
+            sudo ./aws/install
+            rm -rf awscliv2.zip aws
+            echo "AWS CLI installed successfully"
+            aws --version
+        triggeredBy:
+        - postEnvironmentStart
+
+services: {}
+
